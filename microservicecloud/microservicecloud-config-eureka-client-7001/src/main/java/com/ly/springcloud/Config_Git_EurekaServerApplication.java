@@ -2,7 +2,6 @@ package com.ly.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @program: microservicecloud
@@ -11,9 +10,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @create: 2019-07-10
  **/
 @SpringBootApplication
-@EnableEurekaClient
-public class DeptConsumer80_App {
+public class Config_Git_EurekaServerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DeptConsumer80_App.class, args);
+        SpringApplication.run(Config_Git_EurekaServerApplication.class,args);
     }
 }

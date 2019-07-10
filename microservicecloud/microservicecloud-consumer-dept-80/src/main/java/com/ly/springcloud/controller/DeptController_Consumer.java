@@ -1,4 +1,4 @@
-package com.ly.springcloud.cfgbeans.controller;
+package com.ly.springcloud.controller;
 
 import com.ly.springcloud.entities.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,8 @@ import java.util.List;
  **/
 @RestController
 public class DeptController_Consumer {
-    private static final String REST_URL_PREFIX = "http://localhost:8001";
+    //    private static final String REST_URL_PREFIX = "http://localhost:8001";
+    private static final String REST_URL_PREFIX = "http://MICROSERVICECLOUD-DEPT";//通过微服务名称获取
     /*
             什么是RestTemplate？
               RestTemplate 提供了多种便捷访问远程Http服务的方法,是一种便捷的访问restful服务模板类,是spring提供的用于访问Rest服务的客户模板工具类。
@@ -42,4 +43,9 @@ public class DeptController_Consumer {
         return restTemplate.getForObject(REST_URL_PREFIX + "/dept/list", List.class);
     }
 
+    // 测试@EnableDiscoveryClient,消费端可以调用服务发现
+    @RequestMapping(value = "/consumer/dept/discovery")
+    public Object discovery() {
+        return restTemplate.getForObject(REST_URL_PREFIX + "/dept/discovery", Object.class);
+    }
 }
