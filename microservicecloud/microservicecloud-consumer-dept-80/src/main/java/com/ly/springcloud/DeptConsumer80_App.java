@@ -1,0 +1,17 @@
+package com.ly.springcloud;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/**
+ * @program: microservicecloud
+ * @description:
+ * @author: Mr.Yan
+ * @create: 2019-07-10
+ **/
+@SpringBootApplication
+public class DeptConsumer80_App {
+    public static void main(String[] args) {
+        SpringApplication.run(DeptConsumer80_App.class, args);
+    }
+}
