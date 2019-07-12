@@ -1,0 +1,28 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+
+zuul:
+  prefix: /ly
+# ignored-services: microservicecloud-dept #忽略原真实服务名字 （忽略全部服务真实名称用 "*" )
+  ignored-services: "*"
+  routes:
+    mydept.serviceId: microservicecloud-dept  # http://myzuul.com:9527/microservicecloud-dept/dept/get/1
+    mydept.path: /mydept/** # http://myzuul.com:9527/mydept/dept/get/1
+
+info:
+  app.name: ly-microservicecloud
+  company.name: https://github.com/yan19920713/springCloudDemo.git
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
